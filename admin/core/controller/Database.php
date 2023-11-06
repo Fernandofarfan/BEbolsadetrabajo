@@ -1,9 +1,11 @@
 <?php
 class Database {
-    private $user = "root";
-    private $pass = "";
+    private $user = "nysql";
+    private $pass = "1234";
     private $host = "localhost";
-    private $ddbb = "recrutador";
+    private $ddbb = "be-bolsadetrabajo-db";
+
+    private $port = "3306";
     private static $db;
     private static $con;
 
@@ -12,8 +14,7 @@ class Database {
     }
 
     public function connect() {
-        $con = new mysqli($this->host, $this->user, $this->pass, $this->ddbb);
-        return $con;
+        return new mysqli($this->host, $this->user, $this->pass, $this->ddbb, $this->port);
     }
 
     public static function getCon() {
@@ -24,5 +25,3 @@ class Database {
         return self::$con;
     }
 }
-
-?>
