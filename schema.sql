@@ -1,7 +1,3 @@
-
-create database recrutador;
-use recrutador;
-
 create table category(
 	id int not null auto_increment primary key,
 	name varchar(255)
