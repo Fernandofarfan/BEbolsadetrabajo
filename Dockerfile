@@ -27,7 +27,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 # Instala las dependencias utilizando Composer
 RUN composer install
 
-# Copia todo el contenido de tu proyecto al directorio de trabajo de la imagen
+# Copia el contenido de tu proyecto al directorio de trabajo de la imagen
 COPY . /var/www/html/
 
 # Expone el puerto 80 para el servidor web
