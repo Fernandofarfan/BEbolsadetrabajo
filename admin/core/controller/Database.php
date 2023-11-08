@@ -1,20 +1,19 @@
 <?php
 class Database {
-    private $user = "mysql";
-    private $pass = "1234";
-    private $host = "localhost";
-    private $ddbb = "be-bolsadetrabajo-db";
-
-    private $port = "3306";
     private static $db;
     private static $con;
 
     public function __construct() {
-        // Constructor
     }
 
     public function connect() {
-        return new mysqli($this->host, $this->user, $this->pass, $this->ddbb, $this->port);
+        $db_host = getenv('DB_HOST');
+        $db_user = getenv('DB_USER');
+        $db_password = getenv('DB_PASSWORD');
+        $db_name = getenv('DB_NAME');
+        $db_port = getenv('DB_PORT');
+
+        return new mysqli($db_host, $db_user, $db_password, $db_name, $db_port);
     }
 
     public static function getCon() {
