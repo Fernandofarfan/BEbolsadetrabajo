@@ -3,23 +3,14 @@
 ## Prerequisitos
 
 1. Tener instalado Docker
+2. Tener instalado docker-compose
 
 ## Acciones
 
-1. Construir la imagen de la base de datos con Docker
+1. Ejecutar el archivo para levantar los dos docker
 
    ```bash
-      docker build -t be-bolsadetrabajo-db .
-      ```
-2. Levantar la imagen de la base de datos con Docker
-   ```bash
-    docker run --name be-bolsadetrabajo-db-container -p 3306:3306 be-bolsadetrabajo-db
+      ./local-run.sh
    ```
-3. Constuir la imagen de la aplicación php con Docker
-   ```bash
-   docker build -t be-bolsadetrabajo .
-    ```
-4. Levantar la imagen de la aplicación php con Docker
-   ```bash
-    docker run -p 8080:80 --name be-bolsadetrabajo-container be-bolsadetrabajo
-   ```
+
+2. Abrir la aplicación en la siguiente [url](localhost:8080)

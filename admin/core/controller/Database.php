@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $user = "nysql";
+    private $user = "mysql";
     private $pass = "1234";
     private $host = "localhost";
     private $ddbb = "be-bolsadetrabajo-db";

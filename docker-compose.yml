@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.2.0
+    container_name: my-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: be-bolsadetrabajo-db
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    command: --init-file /docker-entrypoint-initdb.d/create_tables.sql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
+      - .:/var/www/html
+    depends_on:
+      - mysql

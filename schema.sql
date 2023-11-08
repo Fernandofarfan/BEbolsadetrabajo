@@ -51,12 +51,6 @@ create table user(
 	created_at datetime
 );
 
-/**
-* password: encrypted using sha1(md5("mypassword"))
-* status: 1. active, 2. inactive, 3. other, ...
-* kind: 1. root, 2. other, ...
-**/
-
 insert into user (name,username,password,kind,created_at) value ("Administrator","admin",sha1(md5("admin")),1,NOW());
 
 
